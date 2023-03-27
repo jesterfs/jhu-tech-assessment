@@ -80,7 +80,11 @@ def analyze_files(files):
     json_file_name = datetime.now().strftime("%A_%d_%b_%Y_%H:%M:%S_%p")
     with open(f"{json_file_name}.json", "w") as outfile:
         json.dump(result, outfile)
+
         # returns results as dictionary
+
+    print("\n")
+    print(f"These results have been saved in the current folder as {json_file_name}.json")
     return result
 
 
