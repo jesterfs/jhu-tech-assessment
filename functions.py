@@ -1,4 +1,7 @@
 from pathlib import Path
+import json
+from datetime import datetime
+import time
 
 
 
@@ -73,7 +76,11 @@ def analyze_files(files):
             print(f"{result['snv_by_chrom'][chrom]} SNVs on chromosome {chrom}")
         print(f"The mean read depth is {result['read_depth_mean']}\n")
 
-    # returns results as dictionary
+
+    json_file_name = datetime.now().strftime("%A_%d_%b_%Y_%H:%M:%S_%p")
+    with open(f"{json_file_name}.json", "w") as outfile:
+        json.dump(result, outfile)
+        # returns results as dictionary
     return result
 
 
